@@ -41,3 +41,14 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+*.log
+*.lock
+/.metadata
+/formComponent/.classpath
+/formComponent/.mymetadata
+/formComponent/.project
+/formComponent/.myeclipse
+/formComponent/.settings
+/formComponent/WebRoot/webpages/testComponent.jsp
+/formComponent/WebRoot/webpages/json1
