@@ -43,7 +43,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script>
 		$(document).ready(function(){
-		    $.newNavi(".holder",".table",100,1,20,2,"<-前一页","后一页->","","cityId,cityName,provinceId,cityOrder","servlet/test");
+		    /*$.newNavi(".holder",".table",100,1,20,2,"<-前一页","后一页->","","cityId,cityName,provinceId,cityOrder","servlet/test");*/
+			/*$.newNavi("cityId,cityName,provinceId,cityOrder","servlet/test");*/
+			var s = new FORMCOMPONENT();
+			s.formComponent("cityId,cityName,provinceId,cityOrder","servlet/test");
 		});
 	</script>
 </head>
