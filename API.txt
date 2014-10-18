@@ -1,0 +1,35 @@
+1. formComponent(headStr,url,servletParam):
+	function:create a new formComponent
+	params:	headStr: the String of table head 
+		url: the url of servlet which will be used to process request
+		servletParam: an object contains the params which will be used by the servlet
+
+2. setGlobal(params):
+	function:set global vars of the formComponent [optional]
+	params: params: the value which will be reset by user
+	remark: the params which can be set by users are 
+		FORMGLOBAL = {
+			naviDiv: ".holder",
+			tableDiv: ".table",
+			tableName: "",
+			pageNum: 100,
+			pageIndex: 1,
+			perPage: 20,
+			pageView: 2,
+			previous: "<-前一页",
+			next: "后一页->",
+			headStr:"",
+			url:"",
+			servletParam:{}
+		}
+
+3. getSelectedRowsId():
+	function: get all the id of selectedRows
+	params: ---
+
+4. enableMultiSeleted(data):
+	function: enable or disable the function of selecting multiple rows
+	params: data: true means enable this function,false means disable this function	 
+
+5. attachSelectEvent(Func):
+	function: bind funtion which will be executed when a row has been selected

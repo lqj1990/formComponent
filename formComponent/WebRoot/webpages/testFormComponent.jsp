@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<script type="text/javascript" src="js/jquery/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="js/formComponent.js"></script>
+	<script type="text/javascript" src="js/formComponent.js" charset='UTF-8'></script>
 	<script type="text/javascript" src="js/utility.js"></script>
 	<style>
 		a.ui_pageturn{
@@ -39,14 +39,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			border: grey solid 1px;
 			border-collapse: collapse;
 		}
+		
+		.tr_selected{
+			background-color: grey;
+		}
 	</style>
 	
 	<script>
 		$(document).ready(function(){
-		    /*$.newNavi(".holder",".table",100,1,20,2,"<-前一页","后一页->","","cityId,cityName,provinceId,cityOrder","servlet/test");*/
-			/*$.newNavi("cityId,cityName,provinceId,cityOrder","servlet/test");*/
 			var s = new FORMCOMPONENT();
-			s.formComponent("cityId,cityName,provinceId,cityOrder","servlet/test");
+			s.setGlobal({pageIndex:2, pageNum:50});
+			s.formComponent("cityId,cityName,provinceId,cityOrder","servlet/test",{x:1});
+			$("#test1").click(function(){
+				var a = s.getSelectedRowsId();
+				if(a != null){
+					for(var i=0;i<a.length;i++){
+						alert(a[i]);
+					}
+				}
+			});
+			$("#test2").click(function(){
+				s.enableMultiSeleted(false);
+			});
+			$("#test3").click(function(){
+				s.attachSelectEvent(function(){alert("绑定成功")});
+			});
 		});
 	</script>
 </head>
@@ -54,5 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <div class="holder"></div>
     <div class="table"></div>
+    <input type="button" id="test1" value="获取选中项的id"/>
+    <input type="button" id="test2" value="设置mulitiSelect"/>
+    <input type="button" id="test3" value="绑定事件"/>
   </body>
 </html>
